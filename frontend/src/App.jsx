@@ -55,6 +55,7 @@ function App() {
     <div className="container">
       <h1>Pet Care</h1>
       <h2>Share information to help others treat their pets.</h2>
+      <h2> *Don't forget to fill in all fields. </h2>
       <div>
         <input placeholder='Name' onChange={event => setNewName(event.target.value)} />
         <input placeholder='Animal' onChange={event => setNewAnimal(event.target.value)} />
@@ -65,8 +66,7 @@ function App() {
       </div>
       <div>
         <h2>See the information below. Maybe you&apos;ll discover something about your pet&apos;s illness 😊.</h2>
-        <h2> *Don't forget to fill in all fields. </h2>
-        <ul>
+         <ul>
           {users.map(user => (
             <li key={user.id} > Name: {user.name} - Animal: {user.animal} - Pet&apos;s name: {user.petsName} -
               Pet&apos;s symptoms: {user.petSymptoms} -
