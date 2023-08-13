@@ -34,23 +34,25 @@ function App() {
   }, [newName, newAnimal, newPetsName, newPetSymptoms, newDisease]);
 
 function addInformation() {
-  if (isFormValid) {
-    const newUser = {
-      name: newName,
-      animal: newAnimal,
-      petsName: newPetsName,
-      petSymptoms: newPetSymptoms,
-      disease: newDisease,
-      id: uuidv4(),
-    };
-
-    api.post('/users', newUser).then((res) => {
-      setUsers([...users, newUser]);
-    });
-  } else {
+  if (!isFormValid) {
     window.alert('Please fill out all fields.');
+    return;
   }
+
+  const newUser = {
+    name: newName,
+    animal: newAnimal,
+    petsName: newPetsName,
+    petSymptoms: newPetSymptoms,
+    disease: newDisease,
+    id: uuidv4(),
+  };
+
+  api.post('/users', newUser).then((res) => {
+    setUsers([...users, newUser]);
+  });
 }
+
 
 
   return (
