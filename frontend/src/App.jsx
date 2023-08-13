@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Swal from 'sweetalert2';
 
+const Swal = require('sweetalert2');
 const api = axios.create({
   baseURL: 'https://pet-care-backend-sooty.vercel.app/'
 });
