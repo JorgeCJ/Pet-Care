@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
+import Swal from 'sweetalert2';
 
 const api = axios.create({
   baseURL: 'https://pet-care-backend-sooty.vercel.app/'
@@ -47,6 +48,13 @@ function App() {
       api.post('/users', newUser).then((res) => {
         setUsers([...users, newUser]);
         console.log(res);
+      });
+    } else {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Fill all the inputs',
+        icon: 'error',
+        confirmButtonText: 'Ok'
       });
     }
   }
