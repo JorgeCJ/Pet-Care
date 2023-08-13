@@ -65,6 +65,7 @@ function App() {
       </div>
       <div>
         <h2>See the information below. Maybe you&apos;ll discover something about your pet&apos;s illness 😊.</h2>
+        <h2> *Don't forget to fill in all fields. </h2>
         <ul>
           {users.map(user => (
             <li key={user.id} > Name: {user.name} - Animal: {user.animal} - Pet&apos;s name: {user.petsName} -
