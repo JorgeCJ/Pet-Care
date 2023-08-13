@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
-import Swal from 'sweetalert2';
 
-const Swal = require('sweetalert2');
 const api = axios.create({
   baseURL: 'https://pet-care-backend-sooty.vercel.app/'
 });
@@ -35,30 +33,27 @@ function App() {
     );
   }, [newName, newAnimal, newPetsName, newPetSymptoms, newDisease]);
 
-  function addInformation() {
-    if (isFormValid) {
-      const newUser = {
-        name: newName,
-        animal: newAnimal,
-        petsName: newPetsName,
-        petSymptoms: newPetSymptoms,
-        disease: newDisease,
-        id: uuidv4(),
-      };
+function addInformation() {
+  if (isFormValid) {
+    const newUser = {
+      name: newName,
+      animal: newAnimal,
+      petsName: newPetsName,
+      petSymptoms: newPetSymptoms,
+      disease: newDisease,
+      id: uuidv4(),
+    };
 
-      api.post('/users', newUser).then((res) => {
-        setUsers([...users, newUser]);
-        console.log(res);
-      });
-    } else {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Fill all the inputs',
-        icon: 'error',
-        confirmButtonText: 'Ok'
-      });
-    }
+    api.post('/users', newUser).then((res) => {
+      setUsers([...users, newUser]);
+      console.log(res);
+      alert('Information added successfully!');
+    });
+  } else {
+    alert('Please fill out all fields.');
   }
+}
+
 
   return (
     <div className="container">
