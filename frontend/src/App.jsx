@@ -46,11 +46,9 @@ function addInformation() {
 
     api.post('/users', newUser).then((res) => {
       setUsers([...users, newUser]);
-      console.log(res);
-      alert('Information added successfully!');
     });
   } else {
-    alert('Please fill out all fields.');
+    window.alert('Please fill out all fields.');
   }
 }
 
